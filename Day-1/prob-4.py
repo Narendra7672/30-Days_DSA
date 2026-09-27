@@ -35,7 +35,6 @@ def substring(s):
 
     return max_len
 
-
 s = "abcabcbb"
 
 print(substring(s))
