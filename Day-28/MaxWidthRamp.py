@@ -1,0 +1,16 @@
+# Maximum Width Ramp:
+def maxWidthRamp(nums):
+    stack = []
+    n = len(nums)
+    for i in range(n):
+        if not stack or nums[stack[-1]] > nums[i]:
+            stack.append(i)
+    max_width = 0
+    for j in range(n - 1, -1, -1):
+        while stack and nums[stack[-1]] <= nums[j]:
+            max_width = max(max_width, j - stack.pop())
+    return max_width
+
+
+nums = [6, 0, 8, 2, 1, 5]
+print(maxWidthRamp(nums))
